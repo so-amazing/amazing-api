@@ -1,0 +1,36 @@
+
+### Get all shops
+GET http://localhost:3333/api/shops
+Accept: application/json
+
+### Create a shop (replace `AUTH_TOKEN`)
+POST http://localhost:3333/api/shops
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Tech Store",
+  "location": "Downtown"
+}
+
+### Get a single shop (replace `SHOP_ID`)
+GET http://localhost:3333/api/shops/1
+Accept: application/json
+
+### Update a shop (replace `SHOP_ID`)
+PUT http://localhost:3333/api/shops/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+{
+  "name": "Updated Shop"
+}
+
+### Delete a shop (replace `SHOP_ID`)
+DELETE http://localhost:3333/api/shops/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+

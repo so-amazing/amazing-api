@@ -1,0 +1,40 @@
+
+### Get all users
+GET http://localhost:3333/api/users
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+### Create a new user
+POST http://localhost:3333/api/users
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "fullName": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Get a single user (replace `USER_ID` with actual ID)
+GET http://localhost:3333/api/users/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+### Update a user (replace `USER_ID`)
+PUT http://localhost:3333/api/users/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "fullName": "updateduser"
+}
+
+### Delete a user (replace `USER_ID`)
+DELETE http://localhost:3333/api/users/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+

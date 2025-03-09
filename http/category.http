@@ -1,0 +1,40 @@
+
+### Get all categories
+GET http://localhost:3333/api/categories
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+### Create a category
+POST http://localhost:3333/api/categories
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Electronics",
+  "backgroundColor"": "#oooff",
+  "icon": "Test"
+}
+
+### Get a single category (replace `CATEGORY_ID`)
+GET http://localhost:3333/api/categories/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+### Update a category (replace `CATEGORY_ID`)
+PUT http://localhost:3333/api/categories/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Updated Category"
+}
+
+### Delete a category (replace `CATEGORY_ID`)
+DELETE http://localhost:3333/api/categories/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+

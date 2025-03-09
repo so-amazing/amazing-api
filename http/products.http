@@ -1,0 +1,39 @@
+
+### Get all products
+GET http://localhost:3333/api/products
+Accept: application/json
+
+### Create a product (replace `AUTH_TOKEN`, `CATEGORY_ID`, `SHOP_ID`)
+POST http://localhost:3333/api/products
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "MacBook Pro",
+  "description": "A powerful laptop",
+  "price": 2000,
+  "isNegotiable": false,
+  "categoryId": 1,
+  "shopId": 1
+}
+
+### Get a single product (replace `PRODUCT_ID`)
+GET http://localhost:3333/api/products/1
+Accept: application/json
+
+### Update a product (replace `PRODUCT_ID`)
+PUT http://localhost:3333/api/products/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Updated MacBook Pro"
+}
+
+### Delete a product (replace `PRODUCT_ID`)
+DELETE http://localhost:3333/api/products/1
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+

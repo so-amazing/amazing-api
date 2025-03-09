@@ -1,0 +1,69 @@
+
+# Register a new user
+POST http://localhost:3333/api/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "fullName": "John Doe",
+  "email": "john@example.com",
+  "phone": "0712345678",
+  "password": "password123"
+}
+
+###
+
+# Login and store token dynamically
+POST http://localhost:3333/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+> {%
+    client.global.set("accessToken", response.body.token);
+%}
+
+###
+
+# Get all users (requires authorization)
+GET http://localhost:3333/api/users
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+###
+
+# Forgot password (send reset token via SMS)
+POST http://localhost:3333/api/auth/forgot-password
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "john@example.com"
+}
+
+###
+
+# Confirm reset token
+POST http://localhost:3333/api/auth/confirm-reset-token
+Content-Type: application/json
+Accept: application/json
+
+{
+  "rememberToken": "123456"
+}
+
+###
+
+# Reset password
+POST http://localhost:3333/api/auth/reset-password
+Content-Type: application/json
+Accept: application/json
+
+{
+  "rememberToken": "123456",
+  "password": "newpassword123"
+}
