@@ -8,6 +8,7 @@ export default class extends BaseSchema {
       table.increments("id").notNullable();
       table.string("full_name").nullable();
       table.string("email", 254).unique().notNullable();
+      table.string("phone").unique().nullable();
       table.string("password").notNullable();
       table.text("about").nullable();
       table.string("avatar").nullable();
@@ -16,6 +17,7 @@ export default class extends BaseSchema {
 
       table.timestamp("created_at").notNullable();
       table.timestamp("updated_at").nullable();
+      table.string("remember_token").nullable();
     });
   }
 

@@ -25,6 +25,6 @@ export default class UsersController {
   async delete({ params, response }: HttpContext) {
     const user = await User.findOrFail(params.id);
     await user.delete();
-    return response.json({ message: "User Deleted Successfully" });
+    return response.status(204).json({ message: "User Deleted Successfully" });
   }
 }

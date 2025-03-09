@@ -10,6 +10,10 @@ export const createUserValidator = vine.compile(
         const user = await db.from("users").where("email", value).first();
         return !user;
       }),
+    phone: vine.string().unique(async (db, value, field) => {
+      const user = await db.from("users").where("phone", value).first();
+      return !user;
+    }),
     password: vine.string(),
     about: vine.string().nullable(),
     avatar: vine.string().nullable(),
