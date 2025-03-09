@@ -7,10 +7,17 @@
 |
 */
 
+const UsersController = () => import("#controllers/users_controller");
 import router from "@adonisjs/core/services/router";
+import { middleware } from "./kernel.js";
 
-router.get("/", async () => {
-  return {
-    hello: "world",
-  };
-});
+router
+  .group(() => {
+    router.resource("user", UsersController).apiOnly();
+  })
+  .prefix("api")
+  .use(
+    middleware.auth({
+      guards: ["api"],
+    }),
+  );

@@ -24,16 +24,16 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare password: string;
 
   @column()
-  declare about: string;
+  declare about?: string | null;
 
   @column()
-  declare avatar: string;
+  declare avatar?: string | null;
 
   @column({ columnName: "is_verified_by_mail" })
-  declare isVerifiedByMail: boolean;
+  declare isVerifiedByMail?: boolean | null;
 
   @column({ columnName: "is_verified_by_org" })
-  declare isVerifiedByOrg: boolean;
+  declare isVerifiedByOrg: boolean | null;
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime;
