@@ -17,7 +17,7 @@ const ShopsController = () => import("#controllers/shops_controller");
 
 router
   .group(() => {
-    router.resource("user", UsersController).apiOnly();
+    router.resource("users", UsersController).apiOnly();
     router.resource("categories", CategoriesController).apiOnly();
     router.resource("products", ProductsController).apiOnly();
     router.resource("shops", ShopsController).apiOnly();
@@ -40,4 +40,4 @@ router
     ]);
     router.post("/reset-password", [AuthController, "resetPassword"]);
   })
-  .prefix("/api");
+  .prefix("/api/auth");
