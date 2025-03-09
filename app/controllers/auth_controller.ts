@@ -42,7 +42,7 @@ export default class AuthController {
       return phone;
     }
     await this.sendRememberToken(
-      formatPhoneNumber(user.phone),
+      formatPhoneNumber(user.phone ?? ""),
       `Your password reset token is ${rememberToken}`,
     );
     return {
