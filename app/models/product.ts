@@ -1,9 +1,10 @@
 import { DateTime } from "luxon";
-import { BaseModel, column, belongsTo } from "@adonisjs/lucid/orm";
+import { BaseModel, column, belongsTo, hasMany } from "@adonisjs/lucid/orm";
 import User from "./user.js";
 import Shop from "./shop.js";
 import Category from "./category.js";
-import type { BelongsTo } from "@adonisjs/lucid/types/relations";
+import type { BelongsTo, HasMany } from "@adonisjs/lucid/types/relations";
+import OrderDetail from "./order_detail.js";
 
 export default class Product extends BaseModel {
   @column({ isPrimary: true })
@@ -50,4 +51,7 @@ export default class Product extends BaseModel {
 
   @belongsTo(() => Category)
   declare category: BelongsTo<typeof Category>;
+
+  @hasMany(() => OrderDetail)
+  declare orderDetails: HasMany<typeof OrderDetail>;
 }
