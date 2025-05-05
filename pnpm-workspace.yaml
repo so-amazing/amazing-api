@@ -1,0 +1,5 @@
+ignoredBuiltDependencies:
+  - prettier-edgejs
+
+onlyBuiltDependencies:
+  - '@swc/core'

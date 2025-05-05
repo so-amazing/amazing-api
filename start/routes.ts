@@ -15,6 +15,7 @@ const CategoriesController = () => import("#controllers/categories_controller");
 const ProductsController = () => import("#controllers/products_controller");
 const ShopsController = () => import("#controllers/shops_controller");
 
+const OrdersController = () => import("#controllers/orders_controller");
 // Register Api Routes
 import AutoSwagger from "adonis-autoswagger";
 import swagger from "#config/swagger";
@@ -37,6 +38,7 @@ router
     router.resource("categories", CategoriesController).apiOnly();
     router.resource("products", ProductsController).apiOnly();
     router.resource("shops", ShopsController).apiOnly();
+    router.resource("orders", OrdersController).apiOnly();
   })
   .prefix("api")
   .use(

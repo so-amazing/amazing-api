@@ -7,6 +7,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id");
       table.integer("product_id").unsigned();
+      table.integer("order_id").unsigned();
       table.decimal("quantity");
       table.decimal("price");
 
@@ -14,6 +15,7 @@ export default class extends BaseSchema {
       table.timestamp("updated_at");
 
       table.foreign("product_id").references("id").inTable("products");
+      table.foreign("order_id").references("id").inTable("orders");
     });
   }
 

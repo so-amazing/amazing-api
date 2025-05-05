@@ -3,6 +3,7 @@ import { BaseModel, belongsTo, column } from "@adonisjs/lucid/orm";
 import Product from "./product.js";
 import type { BelongsTo } from "@adonisjs/lucid/types/relations";
 import Category from "./category.js";
+import Order from "./order.js";
 
 export default class OrderDetail extends BaseModel {
   @column({ isPrimary: true })
@@ -10,6 +11,9 @@ export default class OrderDetail extends BaseModel {
 
   @column()
   declare productId: number;
+
+  @column()
+  declare orderId: number;
 
   @column()
   declare quantity: number;
@@ -26,4 +30,7 @@ export default class OrderDetail extends BaseModel {
   // Relation ShipsProduct
   @belongsTo(() => Product)
   declare product: BelongsTo<typeof Product>;
+
+  @belongsTo(() => Order)
+  declare order: BelongsTo<typeof Order>;
 }
