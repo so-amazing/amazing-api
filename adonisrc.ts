@@ -1,4 +1,4 @@
-import { defineConfig } from "@adonisjs/core/app";
+import { defineConfig } from "@adonisjs/core/app"
 
 export default defineConfig({
   /*
@@ -13,6 +13,7 @@ export default defineConfig({
   commands: [
     () => import("@adonisjs/core/commands"),
     () => import("@adonisjs/lucid/commands"),
+    () => import('@adonisjs/cache/commands')
   ],
 
   /*
@@ -35,6 +36,8 @@ export default defineConfig({
     () => import("@adonisjs/cors/cors_provider"),
     () => import("@adonisjs/lucid/database_provider"),
     () => import("@adonisjs/auth/auth_provider"),
+    () => import('@adonisjs/redis/redis_provider'),
+    () => import('@adonisjs/cache/cache_provider')
   ],
 
   /*
@@ -71,4 +74,4 @@ export default defineConfig({
     ],
     forceExit: false,
   },
-});
+})
