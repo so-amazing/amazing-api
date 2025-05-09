@@ -7,7 +7,9 @@ import db from "@adonisjs/lucid/services/db";
 export default class OrdersController {
   // Show All Orders
   public async index({ response }: HttpContext) {
-    const orders = await Order.query().preload("orderDetails");
+    const orders = await Order.query()
+      .preload("orderDetails")
+      .preload("payments");
     return response.json(orders);
   }
   // Create Order

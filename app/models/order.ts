@@ -3,6 +3,7 @@ import { BaseModel, belongsTo, column, hasMany } from "@adonisjs/lucid/orm";
 import OrderDetail from "./order_detail.js";
 import User from "./user.js";
 import type { BelongsTo, HasMany } from "@adonisjs/lucid/types/relations";
+import Payment from "./payment.js";
 
 export default class Order extends BaseModel {
   @column({ isPrimary: true })
@@ -20,6 +21,9 @@ export default class Order extends BaseModel {
   @column()
   declare seenByAdmin: boolean;
 
+  @column()
+  declare isPaid: boolean;
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime;
 
@@ -31,4 +35,7 @@ export default class Order extends BaseModel {
 
   @hasMany(() => OrderDetail)
   declare orderDetails: HasMany<typeof OrderDetail>;
+
+  @hasMany(() => Payment)
+  declare payments: HasMany<typeof Payment>;
 }

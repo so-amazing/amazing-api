@@ -1,21 +1,20 @@
 import { BaseSchema } from "@adonisjs/lucid/schema";
 
 export default class extends BaseSchema {
-  protected tableName = "orders";
+  protected tableName = "payments";
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments("id");
-      table.integer("user_id").unsigned();
-      table.string("order_number");
-      table.string("status");
-      table.boolean("seen_by_admin").defaultTo(false);
-      table.boolean("is_paid").defaultTo(false);
+      table.integer("order_id").unsigned();
+      table.double("amount");
+      table.string("transaction_id");
+      table.jsonb("payment_details").nullable();
 
       table.timestamp("created_at");
       table.timestamp("updated_at");
 
-      table.foreign("user_id").references("id").inTable("users");
+      table.foreign("order_id").references("id").inTable("orders");
     });
   }
 
