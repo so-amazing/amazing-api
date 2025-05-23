@@ -9,7 +9,12 @@ export default class UsersController {
 
   async store({ request }: HttpContext) {
     const body = await request.validateUsing(createUserValidator);
-    return await User.create(body);
+    const user = await User.create(body);
+    await user.related("wallet").create({
+      points: 0,
+      balance: 0,
+    });
+    return;
   }
 
   async show({ params }: HttpContext) {
